@@ -35,8 +35,8 @@ A cross-platform mobile app built with C# and .NET MAUI that tracks user locatio
 
 1. Clone the repository:
 ```bash
-   git clone https://github.com/YOUR_USERNAME/LocationTracker-MAUI.git
-   cd LocationTracker-MAUI
+   git clone https://github.com/nhemani33090/LocationTracker.git
+   cd LocationTracker
 ```
 
 2. **Add Google Maps API Key** (Android only):
