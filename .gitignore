@@ -1,0 +1,51 @@
+## .NET MAUI Location Tracker
+
+# Build results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+# Visual Studio
+.vs/
+.vscode/
+*.user
+*.suo
+*.userprefs
+
+# User-specific files
+*.rsuser
+*.userosscache
+*.sln.docstates
+
+# MAUI specific
+*.apk
+*.aab
+*.ipa
+*.app
+*.dex
+
+# Database files (optional - keep to preserve test data)
+# *.db3
+# *.sqlite
+
+# NuGet
+*.nupkg
+packages/
+*.nuget.props
+*.nuget.targets
+
+# Mac
+.DS_Store
+xcuserdata/
+
+# Windows
+Thumbs.db
+[Dd]esktop.ini
+
+# Rider
+.idea/
+
+# Temp files
+*.tmp
+*.log
+*.bak

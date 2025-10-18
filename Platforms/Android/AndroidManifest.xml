@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <!-- Application package name and version -->
+    <application 
+        android:allowBackup="true" 
+        android:icon="@mipmap/appicon" 
+        android:roundIcon="@mipmap/appicon_round" 
+        android:supportsRtl="true">
+		 <meta-data 
+            android:name="com.google.android.geo.API_KEY" 
+            android:value="YOUR_API_KEY_HERE"/>
+    </application>
+    
+    <!-- Permissions required for location tracking -->
+    
+    <!-- Access fine location (GPS) -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    
+    <!-- Access coarse location (Network-based) -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    
+    <!-- Access location in background (for continuous tracking) -->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    
+    <!-- Internet permission for map tiles -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    
+    <!-- Network state for connectivity checks -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    
+    <!-- Features -->
+    <uses-feature 
+        android:name="android.hardware.location" 
+        android:required="false" />
+    <uses-feature 
+        android:name="android.hardware.location.gps" 
+        android:required="false" />
+    <uses-feature 
+        android:name="android.hardware.location.network" 
+        android:required="false" />
+    
+</manifest>

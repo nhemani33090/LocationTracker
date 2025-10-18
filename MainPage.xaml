@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
+             xmlns:controls="clr-namespace:LocationTracker.Controls"
+             x:Class="LocationTracker.MainPage"
+             Title="Location Tracker">
+
+    <Grid RowDefinitions="Auto,*,Auto" Padding="0">
+        
+        <!-- Status Bar -->
+        <Frame Grid.Row="0" 
+               BackgroundColor="{StaticResource Primary}"
+               CornerRadius="0"
+               Padding="15,40,15,10"
+               HasShadow="True">
+            <Grid ColumnDefinitions="*,Auto">
+                <StackLayout Grid.Column="0" Spacing="5">
+                    <Label Text="Location Tracker"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           TextColor="White"/>
+                    <Label x:Name="StatusLabel"
+                           Text="Ready to track"
+                           FontSize="14"
+                           TextColor="White"
+                           Opacity="0.9"/>
+                </StackLayout>
+                
+                <StackLayout Grid.Column="1" 
+                            VerticalOptions="Center"
+                            Spacing="5">
+                    <Label x:Name="LocationCountLabel"
+                           Text="0 locations"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           TextColor="White"
+                           HorizontalOptions="End"/>
+                    <Label x:Name="LastUpdateLabel"
+                           Text="No updates yet"
+                           FontSize="12"
+                           TextColor="White"
+                           Opacity="0.8"
+                           HorizontalOptions="End"/>
+                </StackLayout>
+            </Grid>
+        </Frame>
+
+        <!-- Map with Heat Map Overlay -->
+        <Grid Grid.Row="1">
+            <!-- Base Map -->
+            <maps:Map x:Name="MainMap"
+                     IsShowingUser="True"
+                     MapType="Street">
+            </maps:Map>
+            
+            <!-- Heat Map Overlay -->
+            <controls:HeatMapOverlay x:Name="HeatMapOverlay"
+                                    InputTransparent="True"/>
+        </Grid>
+
+        <!-- Control Panel -->
+        <Frame Grid.Row="2"
+               BackgroundColor="White"
+               CornerRadius="20,20,0,0"
+               Padding="20,15"
+               HasShadow="True">
+            <StackLayout Spacing="15">
+                
+                <!-- Tracking Controls -->
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                    <Button x:Name="StartButton"
+                            Grid.Column="0"
+                            Text="🚀 Start Tracking"
+                            Style="{StaticResource PrimaryButton}"
+                            Clicked="OnStartTrackingClicked"
+                            HeightRequest="50"/>
+                    
+                    <Button x:Name="StopButton"
+                            Grid.Column="1"
+                            Text="⏹ Stop"
+                            Style="{StaticResource DangerButton}"
+                            Clicked="OnStopTrackingClicked"
+                            IsEnabled="False"
+                            HeightRequest="50"/>
+                </Grid>
+
+                <!-- Additional Controls -->
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                    <Button Grid.Column="0"
+                            Text="🔄 Refresh"
+                            Style="{StaticResource SecondaryButton}"
+                            Clicked="OnRefreshMapClicked"
+                            HeightRequest="45"/>
+                    
+                    <Button Grid.Column="1"
+                            Text="🗑️ Clear Data"
+                            Style="{StaticResource WarningButton}"
+                            Clicked="OnClearDataClicked"
+                            HeightRequest="45"/>
+                </Grid>
+
+                <!-- Legend -->
+                <Frame BackgroundColor="#F5F5F5"
+                       Padding="10"
+                       CornerRadius="8"
+                       HasShadow="False">
+                    <StackLayout Orientation="Horizontal" Spacing="15">
+                        <Label Text="Heat Map Legend:"
+                               FontSize="12"
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"/>
+                        
+                        <StackLayout Orientation="Horizontal" Spacing="5">
+                            <BoxView Color="Red" 
+                                    WidthRequest="20" 
+                                    HeightRequest="20" 
+                                    CornerRadius="10"/>
+                            <Label Text="High"
+                                   FontSize="11"
+                                   VerticalOptions="Center"/>
+                        </StackLayout>
+                        
+                        <StackLayout Orientation="Horizontal" Spacing="5">
+                            <BoxView Color="Orange" 
+                                    WidthRequest="20" 
+                                    HeightRequest="20" 
+                                    CornerRadius="10"/>
+                            <Label Text="Medium"
+                                   FontSize="11"
+                                   VerticalOptions="Center"/>
+                        </StackLayout>
+                        
+                        <StackLayout Orientation="Horizontal" Spacing="5">
+                            <BoxView Color="Blue" 
+                                    WidthRequest="20" 
+                                    HeightRequest="20" 
+                                    CornerRadius="10"/>
+                            <Label Text="Low"
+                                   FontSize="11"
+                                   VerticalOptions="Center"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                
+            </StackLayout>
+        </Frame>
+        
+    </Grid>
+
+</ContentPage>
